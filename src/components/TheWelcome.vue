@@ -8,81 +8,81 @@ import SupportIcon from './icons/IconSupport.vue'
 </script>
 
 <template>
-  <WelcomeItem>
-    <template #icon>
-      <DocumentationIcon />
-    </template>
-    <template #heading>Documentation</template>
+  <div class="ask-form">
+    <div class="ask-form__header">
+      <span class="ask-form__header-title">Опросы</span>
+      <a href="#" class="ask-form__header-all">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+          <g clip-path="url(#clip0_82_1751)">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M18.75 3C18.75 2.66848 18.6183 2.35054 18.3839 2.11612C18.1495 1.8817 17.8315 1.75 17.5 1.75H2.5C2.16848 1.75 1.85054 1.8817 1.61612 2.11612C1.3817 2.35054 1.25 2.66848 1.25 3V18C1.25 18.3315 1.3817 18.6495 1.61612 18.8839C1.85054 19.1183 2.16848 19.25 2.5 19.25H17.5C17.8315 19.25 18.1495 19.1183 18.3839 18.8839C18.6183 18.6495 18.75 18.3315 18.75 18V3ZM0 3C0 2.33696 0.263392 1.70107 0.732233 1.23223C1.20107 0.763392 1.83696 0.5 2.5 0.5L17.5 0.5C18.163 0.5 18.7989 0.763392 19.2678 1.23223C19.7366 1.70107 20 2.33696 20 3V18C20 18.663 19.7366 19.2989 19.2678 19.7678C18.7989 20.2366 18.163 20.5 17.5 20.5H2.5C1.83696 20.5 1.20107 20.2366 0.732233 19.7678C0.263392 19.2989 0 18.663 0 18V3ZM5.625 9.875C5.45924 9.875 5.30027 9.94085 5.18306 10.0581C5.06585 10.1753 5 10.3342 5 10.5C5 10.6658 5.06585 10.8247 5.18306 10.9419C5.30027 11.0592 5.45924 11.125 5.625 11.125H12.8663L10.1825 13.8075C10.1244 13.8656 10.0783 13.9346 10.0468 14.0105C10.0154 14.0864 9.99921 14.1678 9.99921 14.25C9.99921 14.3322 10.0154 14.4136 10.0468 14.4895C10.0783 14.5654 10.1244 14.6344 10.1825 14.6925C10.2406 14.7506 10.3096 14.7967 10.3855 14.8282C10.4614 14.8596 10.5428 14.8758 10.625 14.8758C10.7072 14.8758 10.7886 14.8596 10.8645 14.8282C10.9404 14.7967 11.0094 14.7506 11.0675 14.6925L14.8175 10.9425C14.8757 10.8844 14.9219 10.8155 14.9534 10.7395C14.9849 10.6636 15.0011 10.5822 15.0011 10.5C15.0011 10.4178 14.9849 10.3364 14.9534 10.2605C14.9219 10.1845 14.8757 10.1156 14.8175 10.0575L11.0675 6.3075C11.0094 6.24939 10.9404 6.20329 10.8645 6.17185C10.7886 6.1404 10.7072 6.12421 10.625 6.12421C10.5428 6.12421 10.4614 6.1404 10.3855 6.17185C10.3096 6.20329 10.2406 6.24939 10.1825 6.3075C10.1244 6.36561 10.0783 6.4346 10.0468 6.51052C10.0154 6.58644 9.99921 6.66782 9.99921 6.75C9.99921 6.83218 10.0154 6.91356 10.0468 6.98948C10.0783 7.0654 10.1244 7.13439 10.1825 7.1925L12.8663 9.875H5.625Z" fill="black"/>
+          </g>
+          <defs>
+            <clipPath id="clip0_82_1751">
+              <rect width="20" height="20" fill="white" transform="translate(0 0.5)"/>
+            </clipPath>
+          </defs>
+        </svg>
 
-    Vue’s
-    <a href="https://vuejs.org/" target="_blank" rel="noopener">official documentation</a>
-    provides you with all information you need to get started.
-  </WelcomeItem>
+        Все опросы
+      </a>
+    </div>
 
-  <WelcomeItem>
-    <template #icon>
-      <ToolingIcon />
-    </template>
-    <template #heading>Tooling</template>
+    <h3 class="ask-form__title">
+      В каком формате работают подразделения бэк-офиса?
+    </h3>
 
-    This project is served and bundled with
-    <a href="https://vitejs.dev/guide/features.html" target="_blank" rel="noopener">Vite</a>. The
-    recommended IDE setup is
-    <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VSCode</a> +
-    <a href="https://github.com/johnsoncodehk/volar" target="_blank" rel="noopener">Volar</a>. If
-    you need to test your components and web pages, check out
-    <a href="https://www.cypress.io/" target="_blank" rel="noopener">Cypress</a> and
-    <a href="https://on.cypress.io/component" target="_blank" rel="noopener"
-      >Cypress Component Testing</a
-    >.
+<!--    Сами инпуты тоже можно поместить в отдельные компоненты-->
+    <form action="#">
+      <div class="checkbox-control">
+        <input type="checkbox" name="check-0" id="check-0">
+        <label for="check-0">Запущенные ранее проекты продолжаем реализовывать</label>
+      </div>
 
-    <br />
+    </form>
 
-    More instructions are available in <code>README.md</code>.
-  </WelcomeItem>
-
-  <WelcomeItem>
-    <template #icon>
-      <EcosystemIcon />
-    </template>
-    <template #heading>Ecosystem</template>
-
-    Get official tools and libraries for your project:
-    <a href="https://pinia.vuejs.org/" target="_blank" rel="noopener">Pinia</a>,
-    <a href="https://router.vuejs.org/" target="_blank" rel="noopener">Vue Router</a>,
-    <a href="https://test-utils.vuejs.org/" target="_blank" rel="noopener">Vue Test Utils</a>, and
-    <a href="https://github.com/vuejs/devtools" target="_blank" rel="noopener">Vue Dev Tools</a>. If
-    you need more resources, we suggest paying
-    <a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">Awesome Vue</a>
-    a visit.
-  </WelcomeItem>
-
-  <WelcomeItem>
-    <template #icon>
-      <CommunityIcon />
-    </template>
-    <template #heading>Community</template>
-
-    Got stuck? Ask your question on
-    <a href="https://chat.vuejs.org" target="_blank" rel="noopener">Vue Land</a>, our official
-    Discord server, or
-    <a href="https://stackoverflow.com/questions/tagged/vue.js" target="_blank" rel="noopener"
-      >StackOverflow</a
-    >. You should also subscribe to
-    <a href="https://news.vuejs.org" target="_blank" rel="noopener">our mailing list</a> and follow
-    the official
-    <a href="https://twitter.com/vuejs" target="_blank" rel="noopener">@vuejs</a>
-    twitter account for latest news in the Vue world.
-  </WelcomeItem>
-
-  <WelcomeItem>
-    <template #icon>
-      <SupportIcon />
-    </template>
-    <template #heading>Support Vue</template>
-
-    As an independent project, Vue relies on community backing for its sustainability. You can help
-    us by
-    <a href="https://vuejs.org/sponsor/" target="_blank" rel="noopener">becoming a sponsor</a>.
-  </WelcomeItem>
+  </div>
 </template>
+
+<style scoped lang="sass">
+$bgColor: #f5f4f4
+
+.ask-form
+  display: flex
+  flex-direction: column
+  width: 100%
+  min-height: 720px
+  background: $bgColor
+  &__header
+    display: flex
+    align-items: center
+    gap: 40px
+
+    &-title
+      font-size: 28px
+      font-weight: 500
+
+    &-all
+      display: flex
+      align-items: center
+      gap: 10px
+      font-size: 13px
+      text-decoration: none
+      color: #000
+      font-weight: 500
+
+      svg
+        width: 20px
+        height: 20px
+
+  &__title
+
+    margin: 0
+    padding-left: 20px
+    border-left: 4px solid #000
+    display: flex
+    align-items: center
+    font-size: 26px
+
+    min-height: 117px
+
+</style>
