@@ -1,14 +1,54 @@
-<script setup lang="ts">
+<script setup lang="js">
 import WelcomeItem from './WelcomeItem.vue'
 import DocumentationIcon from './icons/IconDocumentation.vue'
 import ToolingIcon from './icons/IconTooling.vue'
 import EcosystemIcon from './icons/IconEcosystem.vue'
 import CommunityIcon from './icons/IconCommunity.vue'
 import SupportIcon from './icons/IconSupport.vue'
+import { ref, onMounted, onBeforeMount } from 'vue';
+import axios from "axios";
+
+
+let d = ref(null);
+
+
+
+
+  onMounted(() => {
+    fetch('https://jsonplaceholder.typicode.com/todos')
+        .then(response => response.json())
+        .then(json => {
+
+          json = json.slice(1,5);
+          console.log(json);
+          d.value = json;
+        });
+
+
+
+  })
+
+
+
+
+
+// new Vue({
+//   el: '#ask-form',
+//   data() {
+//     return {
+//       info: null
+//     };
+//   },
+//   mounted() {
+//     axios
+//         .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+//         .then(response => (this.info = response));
+//   }
+
 </script>
 
 <template>
-  <div class="ask-form">
+  <div class="ask-form" id="ask-form">
     <div class="ask-form__header">
       <span class="ask-form__header-title">Опросы</span>
       <a href="#" class="ask-form__header-all">
@@ -33,9 +73,18 @@ import SupportIcon from './icons/IconSupport.vue'
 
 <!--    Сами инпуты тоже можно поместить в отдельные компоненты-->
     <form action="#">
-      <div class="checkbox-control">
-        <input type="checkbox" name="check-0" id="check-0">
-        <label for="check-0">Запущенные ранее проекты продолжаем реализовывать</label>
+      <div class="checkbox-control" v-for="ask in d">
+
+        <input type="checkbox" :name=ask.id :id=ask.id>
+        <label :for=ask.id>{{ask.title}}</label>
+      </div>
+
+
+
+
+      <div class="ask-form__footer">
+        <button class="ask-form__submit">Голосовать</button>
+        <span class="ask-form__results">Проголосовало: <b>16</b></span>
       </div>
 
     </form>
@@ -52,6 +101,35 @@ $bgColor: #f5f4f4
   width: 100%
   min-height: 720px
   background: $bgColor
+  padding: 30px
+  background-image: url("assets/ask-form/ask-bg.png")
+  background-repeat: no-repeat
+  background-position: bottom right
+
+  .checkbox-control
+    margin-bottom: 30px
+    input
+      display: none
+      &:checked+label:before
+        content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAgElEQVR4nO2SuwmAQBAFRzCUiwwNrcPoCrCLzcxs0TYMjM3EUEQ4QQR/eAsi9wqYWd4+CPlrMiDSglfABJSa8AZIfMNlAzcB/s1aaqAF8odrMXcvKoAR6C4k1ZtaFslwIhEfnR9JxOdD9xLRWIt1P+k1p2idRAW+JgViLXgI6pkBrdIq3SW1qBgAAAAASUVORK5CYII=")
+
+    label
+      display: flex
+      gap: 20px
+      align-items: center
+      &:before
+        content: ""
+        background: #fff
+        width: 24px
+        height: 24px
+        display: flex
+        justify-content: center
+        align-items: center
+        cursor: pointer
+        //content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAgElEQVR4nO2SuwmAQBAFRzCUiwwNrcPoCrCLzcxs0TYMjM3EUEQ4QQR/eAsi9wqYWd4+CPlrMiDSglfABJSa8AZIfMNlAzcB/s1aaqAF8odrMXcvKoAR6C4k1ZtaFslwIhEfnR9JxOdD9xLRWIt1P+k1p2idRAW+JgViLXgI6pkBrdIq3SW1qBgAAAAASUVORK5CYII=")
+        border-radius: 4px
+        
+
   &__header
     display: flex
     align-items: center
@@ -76,7 +154,7 @@ $bgColor: #f5f4f4
 
   &__title
 
-    margin: 0
+    margin: 24px 0 17px 0
     padding-left: 20px
     border-left: 4px solid #000
     display: flex
@@ -84,5 +162,22 @@ $bgColor: #f5f4f4
     font-size: 26px
 
     min-height: 117px
+
+  &__footer
+    margin-top: 30px
+    width: 100%
+    display: flex
+    gap: 20px
+    align-items: center
+
+  &__submit
+    display: flex
+    align-items: center
+    justify-content: center
+    color: #ffffff
+    background: #000
+    padding: 15px 50px
+    border-radius: 100px
+    cursor: pointer
 
 </style>
