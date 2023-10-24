@@ -1,6 +1,7 @@
 <script setup lang="js">
 
 import { ref, onMounted } from 'vue';
+import router from "@/router";
 
 
 
@@ -12,6 +13,8 @@ const addAsk = () => {
 
     const parsed = JSON.stringify(checkedData.value);
     localStorage.setItem('ask', parsed);
+
+    router.push('/results');
 }
 
 
@@ -73,7 +76,7 @@ const addAsk = () => {
 
 
       <div class="ask-form__footer">
-        <button v-if="checkedData.length >= 1"  type="button" @click="addAsk" class="ask-form__submit">Голосовать</button>
+        <button v-if="checkedData.length >= 1" type="button" @click="addAsk" class="ask-form__submit">Голосовать</button>
         <button v-else type="button" disabled="true" style="background: gray" @click="addAsk" class="ask-form__submit">Голосовать</button>
         <span class="ask-form__results">Проголосовало: <b>16</b></span>
       </div>

@@ -51,6 +51,8 @@
 
 
           </div>
+
+          <router-link to="/">Вернуться к опросу</router-link>
       </div>
 
 
